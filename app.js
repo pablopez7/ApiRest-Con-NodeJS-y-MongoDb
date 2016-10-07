@@ -23,6 +23,9 @@ const tareas = require('./routes/tareas')
 require('./models/Usuarios')
 const users = require('./routes/usuarios')
 
+require('./models/Productos')
+const users = require('./routes/productos')
+
 const app = express()
 const port = process.env.PORT || 3030
 
@@ -32,3 +35,4 @@ app.use(cookieParser())
 
 app.use('/', tareas)
 app.use('/', users)
+app.use('/', productos)
