@@ -3,10 +3,10 @@
 const mongoose = require('mongoose')
 
 var ProductosSchema = new mongoose.Schema({
-    nombre: string,
-    directorio: string,
-    descripcion: string,
-    estatus: boolean
+    nombre: String,
+    directorio: String,
+    descripcion: String,
+    estatus: Boolean
 })
 
 mongoose.model('Productos', ProductosSchema)
