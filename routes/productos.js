@@ -25,7 +25,7 @@ router.get('/producto/:nombre', function (req, res, next) {
 })
 */
 
-//GET - Listar Productos
+//GET - Detalle de 1 producto por ID
 router.get('/producto/:id', function (req, res, next) {
     Productos.findById(req.params.id, function (err, producto) {
         if (err) { return next(err) }
