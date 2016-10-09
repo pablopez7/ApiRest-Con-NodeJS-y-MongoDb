@@ -39,12 +39,10 @@ router.post('/producto', function (req, res, next) {
     var producto = new Productos(req.body)
 
     Productos.findOne({ nombre: req.body.nombre }, function (err, document) {
-        console.log(document)
 
         if (document == null) {
 
             if (req.body.nombre.length <= 5) {
-                console.log('No se permiten menos de 5 caracteres')
                 res.json({ message: 'No se permiten menos de 5 caracteres' })
                 return
             }
@@ -64,6 +62,7 @@ router.post('/producto', function (req, res, next) {
 //PUT - Actualizar Producto
 router.put('/producto/:id', function (req, res) {
     Productos.findById(req.params.id, function (err, producto) {
+        producto.key = req.body.key
         producto.nombre = req.body.nombre
         producto.directorio = req.body.directorio
         producto.descripcion = req.body.descripcion
