@@ -14,6 +14,26 @@ router.get('/productos', function (req, res, next) {
     })
 })
 
+/*
+//GET - Listar Productos por nombre
+router.get('/producto/:nombre', function (req, res, next) {
+    Productos.findOne({ nombre: req.params.nombre }, function (err, producto) {
+        if (err) { return next(err) }
+
+        res.json(producto)
+    })
+})
+*/
+
+//GET - Listar Productos
+router.get('/producto/:id', function (req, res, next) {
+    Productos.findById(req.params.id, function (err, producto) {
+        if (err) { return next(err) }
+
+        res.json(producto)
+    })
+})
+
 //POST - Agregar Producto
 router.post('/producto', function (req, res, next) {
     var producto = new Productos(req.body)
