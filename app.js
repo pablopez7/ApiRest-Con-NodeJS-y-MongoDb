@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const autoIncrement = require('mongoose-auto-increment');
 
-const connection = mongoose.connect('mongodb://localhost:27017/prueba', (err, resp) => {
+const connection = mongoose.connect('mongodb://localhost:27017/angular', (err, resp) => {
   if (err) {
     return console.log(`Error al conectar la base de datos ${err}`)
   }
