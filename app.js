@@ -4,8 +4,9 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const autoIncrement = require('mongoose-auto-increment');
 
-mongoose.connect('mongodb://localhost:27017/prueba', (err, resp) => {
+const connection = mongoose.connect('mongodb://localhost:27017/prueba', (err, resp) => {
   if (err) {
     return console.log(`Error al conectar la base de datos ${err}`)
   }
@@ -16,6 +17,8 @@ mongoose.connect('mongodb://localhost:27017/prueba', (err, resp) => {
   })
 
 })
+
+autoIncrement.initialize(connection);
 
 require('./models/Tareas')
 const tareas = require('./routes/tareas')
