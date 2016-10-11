@@ -11,11 +11,9 @@ const connection = mongoose.connect('mongodb://localhost:27017/angular', (err, r
     return console.log(`Error al conectar la base de datos ${err}`)
   }
   console.log('Conexión a la base de datos establecida...')
-
   app.listen(port, () => {
     console.log(`API REST corriendo en http://localhost:${port}`)
   })
-
 })
 
 autoIncrement.initialize(connection);
@@ -31,6 +29,9 @@ const productos = require('./routes/productos')
 
 require('./models/Heroes')
 const heroes = require('./routes/heroes')
+
+require('./models/Imagenes')
+const imagenes = require('./routes/imagenes')
 
 const app = express()
 const port = process.env.PORT || 3030
@@ -55,3 +56,4 @@ app.use('/', tareas)
 app.use('/', users)
 app.use('/', productos)
 app.use('/', heroes)
+app.use('/', imagenes)
