@@ -21,9 +21,9 @@ const upload = multer({ storage: storage })
 //POST - Agregar tarea
 router.post('/file', upload.single('face'), function(req, res, next) {
 
-    var directorio = req.file.path
+    var dir = req.file.path
 
-    var imagen = new Imagenes({nombre: req.body.nombre, directorio:  req.file.path})
+    var imagen = new Imagenes({nombre: req.body.nombre, directorio:  dir})
     imagen.save(function (err, imagen) {
         if (err) { return next(err) }
             res.json(imagen)
