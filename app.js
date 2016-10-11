@@ -3,7 +3,10 @@
 const express = require('express')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+const multer  = require('multer')
+const cloudinary = require('cloudinary')
 const mongoose = require('mongoose')
+
 const autoIncrement = require('mongoose-auto-increment');
 
 const connection = mongoose.connect('mongodb://localhost:27017/angular', (err, resp) => {
