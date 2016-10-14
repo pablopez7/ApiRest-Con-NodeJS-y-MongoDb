@@ -36,6 +36,9 @@ const heroes = require('./routes/heroes')
 require('./models/Imagenes')
 const imagenes = require('./routes/imagenes')
 
+require('./models/Eminence')
+const eminence = require('./routes/eminence')
+
 const app = express()
 const port = process.env.PORT || 3030
 
@@ -60,3 +63,4 @@ app.use('/', users)
 app.use('/', productos)
 app.use('/', heroes)
 app.use('/', imagenes)
+app.use('/', eminence)
