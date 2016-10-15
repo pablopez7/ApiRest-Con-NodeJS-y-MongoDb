@@ -1,13 +1,20 @@
 'use sctrict'
 
 const mongoose = require('mongoose')
+const autoIncrement = require('mongoose-auto-increment')
 
 var ProductosSchema = new mongoose.Schema({
-    key: Number,
+    catalogo: String,
+    categoria: String,
+    producto: String,
     nombre: String,
     directorio: String,
     descripcion: String,
-    estatus: Boolean
+    status: Number,
+    date: { type: Date, default: Date.now },
+
 })
+
+ProductosSchema.plugin(autoIncrement.plugin, { model: 'Productos', field: 'id' })
 
 mongoose.model('Productos', ProductosSchema)
