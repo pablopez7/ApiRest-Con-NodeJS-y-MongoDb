@@ -20,6 +20,7 @@ router.get('/hero/:id', function (req, res, next) {
 
         res.json(hero)
     })
+    
 })
 
 //GET - Detalle Heroe por nombre
